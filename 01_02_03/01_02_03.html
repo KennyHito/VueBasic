@@ -64,10 +64,10 @@
     <!---------------------------------华丽的分割线------------------------------------>
     <h1>数据绑定</h1>
     <!-- 普通写法 -->
-    <!-- 
-      <div>单向数据绑定: <input type="text" v-bind:value="dataName" /></div>
-      <div>双向数据绑定: <input type="text" v-model:value="dataName" /></div> 
-      -->
+    <div>单向数据绑定: <input type="text" v-bind:value="age" /></div>
+    <div>双向数据绑定: <input type="text" v-model:value="age" /></div>
+
+    <br />
 
     <!-- 简写 -->
     <div>(简写)单向数据绑定: <input type="text" :value="dataName" /></div>
@@ -88,6 +88,7 @@
           url: "https://www.tsinghua.edu.cn/",
         },
         dataName: "abc",
+        age: 66
       },
     });
     // v.$mount("#root");//el第二种写法
