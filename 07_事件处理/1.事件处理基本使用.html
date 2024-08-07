@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>事件处理基本使用</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
+  </head>
+
+  <body>
+    <div id="root">
+      <h4>欢迎来到{{schoolName}}</h4>
+      <button @click="buttonClick(score)">点我提示信息</button>
+    </div>
+
+    <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
+    <script type="text/javascript">
+      new Vue({
+        el: "#root",
+        data: {
+          schoolName: "清华大学",
+          score: 800,
+        },
+        methods: {
+          buttonClick(number) {
+            alert(this.schoolName + "需要" + number + "分才能进入!");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

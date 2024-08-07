@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>初始vue</title>
+  <!-- 引入vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <!-- 浏览器书签栏的小图标设置 -->
+  <link rel="icon" href="../img/favicon.ico" />
+</head>
+
+<body>
+  <!-- 
+  学习地址: https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_source=0aba82a4002c00e3a072b82df5f53868 
+    
+  第一章节💊: 初识Vue:
+      1.想让vue工作，就必须创建一个vue实例，且要传入一个配置对象;
+      2.root容器里的代码依然符合html 规范，只不过混入了一些特殊的vue语法;
+      3.root容器里的代码被称为【vue模板】;
+      4.Vue实例和容器是一一对应的；
+      5.真实开发中只有一个Vue实例，并且会配合着组件一起使用；
+      6.｛｛xxx｝｝中的xxx要写js表达式，且xxx可以自动读取到data中的所有属性；
+      7.一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新；
+      注意区分：js表达式 和 js代码（语句）
+        1.表达式:一个表达式会产生一个值，可以放在任何一个需要值的地方：
+          (1).a
+          (2).a+b
+          (3).demo (1)
+          (4).x===y?'a':'b'
+        2.js代码（语句）
+          (1).if(){}
+          (2).for(){}
+      
+  第二章节💊: vue模板语法有2大类：
+      1.插值语法：
+        功能:用于解析标签体内容。
+        写法:{{xxx}了，xxx是js表达式，且可以直接读取到data中的所有属性。
+      2.指今语法：
+        功能:用于解析标签（包括：标签属性、标签体内容、鄉定事件.....）
+        举例:v-bind:href="xxx” 或 简写为 :href="xxx”，xxx同样要写js表达式，
+            且可以直接读取到data中的所有属性。
+        备注:vue中有很多的指今，且形式都是：v-????，此处我们具体拿v-bind举个例子。 
+
+  第三章节💊: vue中有2种数据鄉定的方式：
+      1.单向鄉定(v-bind)：数据只能从data流向页面
+      2.双向鄉定(v-model)：数据不仅能从data流向页面，还可以从页面流向data。
+      备注：
+        1.双向鄉定一般都应用在表单类元素上（如： input、select等）
+        2.v-model:value 可以简写为 v-model，因为v-mode1默认收集的就是value值。    
+  -->
+
+  <!-- 容器 -->
+  <div id="root">
+    <h1>插值语法</h1>
+    <h3>你好,{{name}}</h3>
+    <!---------------------------------华丽的分割线------------------------------------>
+    <h1>指令语法</h1>
+    <a v-bind:href="school.url">(写法一):{{name}}去{{school.name}}读书</a>
+    <!-- 换行,使用br -->
+    <br />
+    <!-- v-bind可以简写成冒号,如写法二 -->
+    <a :href="school.url">(写法二):{{name}}去{{school.name}}读书</a>
+    <!---------------------------------华丽的分割线------------------------------------>
+    <h1>数据绑定</h1>
+    <!-- 普通写法 -->
+    <!-- 
+      <div>单向数据绑定: <input type="text" v-bind:value="dataName" /></div>
+      <div>双向数据绑定: <input type="text" v-model:value="dataName" /></div> 
+      -->
+
+    <!-- 简写 -->
+    <div>(简写)单向数据绑定: <input type="text" :value="dataName" /></div>
+    <div>(简写)双向数据绑定: <input type="text" v-model="dataName" /></div>
+    <!---------------------------------华丽的分割线------------------------------------>
+  </div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    //实例
+    new Vue({
+      el: "#root", //e1用于指定当前vue实例为哪个容器服务，值通常为css选择器字符串(el第一种写法)
+      data: {
+        //data中用于存储数据，数据供e1所指定的容器去使用，值我们暂时先写成一个对象
+        name: "小明",
+        school: {
+          name: "清华大学",
+          url: "https://www.tsinghua.edu.cn/",
+        },
+        dataName: "abc",
+      },
+    });
+    // v.$mount("#root");//el第二种写法
+  </script>
+</body>
+
+</html>
