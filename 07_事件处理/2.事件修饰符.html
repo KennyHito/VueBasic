@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>事件修饰符</title>
-    <!-- 引入vue -->
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <!-- 浏览器书签栏的小图标设置 -->
-    <link rel="icon" href="../img/favicon.ico" />
-    <style>
-      .demo {
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <!-- 
+
+<head>
+  <meta charset="UTF-8" />
+  <title>事件修饰符</title>
+  <!-- 引入vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <!-- 浏览器书签栏的小图标设置 -->
+  <link rel="icon" href="../img/favicon.ico" />
+  <style>
+    .demo {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<!-- 
     Vue中的事件修饰符：
       1.prevent:阻止默认事件（常用）;
       2.stop：阻止事件冒泡（常用）;
@@ -22,39 +23,40 @@
       5.se1f：只有event.target是当前操作的元素是才触发事件;
       6.passive：事件的默认行为立即执行，无需等待事件回调执行完牛;
   -->
-  <body>
-    <div id="root">
-      <h4>欢迎来到{{schoolName}}</h4>
-      <!-- 1.prevent:阻止默认事件（常用）; -->
-      <a href="https://www.tsinghua.edu.cn/" @click.prevent="buttonClick(score)"
-        >点我提示信息1</a
-      >
 
-      <!-- 2.stop：阻止事件冒泡（常用）; -->
-      <div class="demo" @click="buttonClick(score)">
-        <button @click.stop="buttonClick(score)">点我提示信息2</button>
-      </div>
+<body>
+  <div id="root">
+    <h4>欢迎来到{{schoolName}}</h4>
+    <!-- 1.prevent:阻止默认事件（常用）; -->
+    <a href="https://www.tsinghua.edu.cn/" @click.prevent="buttonClick(score)">点我提示信息1</a>
 
-      <!-- 3.once：事件只触发一次（常用）; -->
-      <button class="demo" @click.once="buttonClick(score)">
-        点我提示信息3
-      </button>
+    <!-- 2.stop：阻止事件冒泡（常用）; -->
+    <div class="demo" @click="buttonClick(score)">
+      <button @click.stop="buttonClick(score)">点我提示信息2</button>
     </div>
 
-    <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
-    <script type="text/javascript">
-      new Vue({
-        el: "#root",
-        data: {
-          schoolName: "清华大学",
-          score: 800,
+    <!-- 3.once：事件只触发一次（常用）; -->
+    <button class="demo" @click.once="buttonClick(score)">
+      点我提示信息3
+    </button>
+  </div>
+
+  <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
+  <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    new Vue({
+      el: "#root",
+      data: {
+        schoolName: "清华大学",
+        score: 800,
+      },
+      methods: {
+        buttonClick(number) {
+          alert(this.schoolName + "需要" + number + "分才能进入!");
         },
-        methods: {
-          buttonClick(number) {
-            alert(this.schoolName + "需要" + number + "分才能进入!");
-          },
-        },
-      });
-    </script>
-  </body>
+      },
+    });
+  </script>
+</body>
+
 </html>

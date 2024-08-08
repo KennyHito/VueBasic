@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>何为数据代理</title>
-    <!-- 引入vue -->
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <!-- 浏览器书签栏的小图标设置 -->
-    <link rel="icon" href="../img/favicon.ico" />
-  </head>
 
-  <body>
-    <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
-    <script type="text/javascript">
-      let obj = { x: 100 };
-      let obj2 = { y: 200 };
-      Object.defineProperty(obj2, "x", {
-        get() {
-          return obj.x;
-        },
+<head>
+  <meta charset="UTF-8" />
+  <title>何为数据代理</title>
+  <!-- 引入vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <!-- 浏览器书签栏的小图标设置 -->
+  <link rel="icon" href="../img/favicon.ico" />
+</head>
 
-        set(value) {
-          obj.x = value;
-        },
-      });
-    </script>
-  </body>
+<body>
+  <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
+  <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+    let obj = { x: 100 };
+    let obj2 = { y: 200 };
+    Object.defineProperty(obj2, "x", {
+      get() {
+        return obj.x;
+      },
+
+      set(value) {
+        obj.x = value;
+      },
+    });
+  </script>
+</body>
+
 </html>
