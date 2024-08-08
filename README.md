@@ -139,4 +139,4 @@ Object.defineProperty(obj2, "x", {
   为每一个添加到vm上的属性，都指定一个getter/setter。
   在getter/setter内部去操作（读/写）data中对应的属性。  
 ```
-![](./img/数据代理图示.png)
+![数据代理图示](https://github.com/KennyHito/StudyVue/blob/main/img/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png)
