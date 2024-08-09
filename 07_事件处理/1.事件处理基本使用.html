@@ -9,28 +9,49 @@
   <!-- 浏览器书签栏的小图标设置 -->
   <link rel="icon" href="../img/favicon.ico" />
 </head>
+<!-- 
+事件的基本使用：
+  1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+  2.事件的回调需要配置在methods对象中，最终会在vm上；
+  3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+  4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+  5.@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参； 
+-->
 
 <body>
+
   <div id="root">
     <h4>欢迎来到{{schoolName}}</h4>
-    <button @click="buttonClick(score)">点我提示信息</button>
+    <!-- <button v-on:click="buttonClick">点我提示信息(不传参)</button> -->
+    <!-- v-on:click可以简写@click -->
+    <button @click="buttonClick">点我提示信息(不传参)</button>
+
+    <!-- 分割线 -->
+    <hr />
+
+    <h4>欢迎来到{{schoolName}}</h4>
+    <button @click="addressClick($event,score)">点我提示信息(传参)</button>
   </div>
 
-  <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
   <script type="text/javascript">
     Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
-    new Vue({
+    const vm = new Vue({
       el: "#root",
       data: {
         schoolName: "清华大学",
         score: 800,
       },
       methods: {
-        buttonClick(number) {
-          alert(this.schoolName + "需要" + number + "分才能进入!");
+        buttonClick() {
+          alert("你好");
         },
+        addressClick(event, number) {
+          alert(this.schoolName + "需要" + number + "分才能进入!");//此处的this是vm
+          console.log(event, number);
+        }
       },
     });
+    console.log(vm);
   </script>
 </body>
 

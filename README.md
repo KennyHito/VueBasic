@@ -140,3 +140,16 @@ Object.defineProperty(obj2, "x", {
   在getter/setter内部去操作（读/写）data中对应的属性。  
 ```
 ![数据代理图示](https://github.com/KennyHito/StudyVue/blob/main/img/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png)
+
+
+<h4>第六章: 事件处理</h4>
+
+一、事件的基本使用
+
+```
+1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+2.事件的回调需要配置在methods对象中，最终会在vm上；
+3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+5.@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参； 
+```
