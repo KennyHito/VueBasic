@@ -40,7 +40,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
 备注:vue 中有很多的指今，且形式都是：v-????，此处我们具体拿 v-bind 举个例子。
 ```
 
-<h4>第三章: Vue中有2种数据绑定的方式</h4>
+<h4>三、Vue中有2种数据绑定的方式</h4>
 
 ```
 1.单向绑定(v-bind)：数据只能从 data 流向页面 
@@ -51,7 +51,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
 2.v-model:value可以简写为v-model，因为v-model默认收集的就是value值。
 ```
 
-<h4>第四章: data与el的2种写法</h4>
+<h4>四、data与el的2种写法</h4>
 
 ```
 1.e1有2种写法
@@ -67,7 +67,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
   由vue管理的函数,一定不要写箭头函数，一旦写了箭头函数，this就不再是vue实例了。
 ```
 
-<h4>第五章: MVVM模型</h4>
+<h4>五、MVVM模型</h4>
 
 ```
 1. M：模型(Model): data中的数据
@@ -78,7 +78,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
   2.vm身上所有的属性及vue原型上所有属性，在vue模板中都可以直接使用。
 ```
 
-<h4>第六章: 数据代理</h4>
+<h4>六、数据代理</h4>
 
 一、通过举例的方式回顾Object.defineProperty方法
 
@@ -142,7 +142,7 @@ Object.defineProperty(obj2, "x", {
 ![数据代理图示](https://github.com/KennyHito/StudyVue/blob/main/img/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png)
 
 
-<h4>第七章: 事件处理</h4>
+<h4>七、事件处理</h4>
 
 一、事件的基本使用
 
