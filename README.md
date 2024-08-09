@@ -142,7 +142,7 @@ Object.defineProperty(obj2, "x", {
 ![数据代理图示](https://github.com/KennyHito/StudyVue/blob/main/img/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png)
 
 
-<h4>第六章: 事件处理</h4>
+<h4>第七章: 事件处理</h4>
 
 一、事件的基本使用
 
