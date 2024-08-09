@@ -29,25 +29,37 @@
   -->
 
 <body>
+
   <div id="root">
-    <h4>欢迎来到{{schoolName}}</h4>
-    <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo" @keydown.tab="showInfo" />
+    <!--vue中键盘事件的绑定 一般用keyUp(keydown)-->
+    <h1>欢迎来到{{ name }}</h1>
+    <input type="text" @keyup.enter="showInfo" placeholder="按下回车提示输入" />
+    <input type="text" @keyup.delete="showInfo" placeholder="退格或删除提示输入" />
+    <input type="text" @keyup.esc="showInfo" placeholder="按下esc提示输入" />
+    <input type="text" @keydown.tab="showInfo" placeholder="按下tab示输入" />
+    <input type="text" @keyup.ctrl="showInfo" placeholder="按下command提示输入" />
+    <input type="text" @keydown.p="showInfo" placeholder="按下p提示输入" />
+    <!--键盘事件的修饰符也可以连用-->
+    <input type="text" @keydown.command.g="showInfo" placeholder="按下command和g提示输入" />
   </div>
 
   <script type="text/javascript">
     Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
-
     new Vue({
-      el: "#root",
+      el: '#root',
       data: {
-        schoolName: "剑桥大学!",
+        name: 'shanghai'
       },
       methods: {
-        showInfo(e) {
+        showInfo: function (e) {
+          // if(e.keyCode === 13) {
+          //     console.log(e.target.value);
+          // }
           console.log(e.target.value);
-        },
-      },
-    });
+          console.log(e.key); //按下的名字
+        }
+      }
+    })
   </script>
 </body>
 
