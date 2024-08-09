@@ -4,7 +4,7 @@ B站尚硅谷在线学习视频链接:
 [尚硅谷Vue2.0+Vue3.0全套教程丨vuejs从入门到精通](
 https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_source=0aba82a4002c00e3a072b82df5f53868)
 
-<h4>第一章: 初识 Vue</h4>
+<h4>一、初识 Vue</h4>
 
 ```
 1.想让vue工作，就必须创建一个vue实例，且要传入一个配置对象;
@@ -26,7 +26,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
     (2).for(){}
 ```
 
-<h4>第二章: Vue模板语法有2大类</h4>
+<h4>二、Vue模板语法有2大类</h4>
 
 ```
 1.插值语法：

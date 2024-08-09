@@ -20,7 +20,7 @@
       2.stop：阻止事件冒泡（常用）;
       3.once：事件只触发一次（常用）;
       4.capture：使用事件的捕获模式;
-      5.se1f：只有event.target是当前操作的元素是才触发事件;
+      5.se1f：只有event.target是当前操作的元素时才触发事件;
       6.passive：事件的默认行为立即执行，无需等待事件回调执行完牛;
   -->
 
@@ -41,7 +41,6 @@
     </button>
   </div>
 
-  <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
   <script type="text/javascript">
     Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
     new Vue({

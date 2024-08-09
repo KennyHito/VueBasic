@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>键盘事件</title>
-    <!-- 引入vue -->
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <!-- 浏览器书签栏的小图标设置 -->
-    <link rel="icon" href="../img/favicon.ico" />
-  </head>
-  <!-- 
+
+<head>
+  <meta charset="UTF-8" />
+  <title>键盘事件</title>
+  <!-- 引入vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+  <!-- 浏览器书签栏的小图标设置 -->
+  <link rel="icon" href="../img/favicon.ico" />
+</head>
+<!-- 
       1.vue中常用的按键別名：
         回车 => enter
         删除 => delete（捕获“删除”和“退格”键）
@@ -26,32 +27,28 @@
       4. 也可以使用keycode去指定具体的按键（不推荐）;
       5.Vue.config.keycodes. 自定义键名=键码，可以去定制按键别名（不推荐）;
   -->
-  <body>
-    <div id="root">
-      <h4>欢迎来到{{schoolName}}</h4>
-      <input
-        type="text"
-        placeholder="按下回车提示输入"
-        @keyup.enter="showInfo"
-        @keydown.tab="showInfo"
-      />
-    </div>
 
-    <!-- 数据代理: 通过一个对象代理对另一个对象中属性的操作(读/写) -->
-    <script type="text/javascript">
-      Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+<body>
+  <div id="root">
+    <h4>欢迎来到{{schoolName}}</h4>
+    <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo" @keydown.tab="showInfo" />
+  </div>
 
-      new Vue({
-        el: "#root",
-        data: {
-          schoolName: "剑桥大学!",
+  <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+
+    new Vue({
+      el: "#root",
+      data: {
+        schoolName: "剑桥大学!",
+      },
+      methods: {
+        showInfo(e) {
+          console.log(e.target.value);
         },
-        methods: {
-          showInfo(e) {
-            console.log(e.target.value);
-          },
-        },
-      });
-    </script>
-  </body>
+      },
+    });
+  </script>
+</body>
+
 </html>
