@@ -153,3 +153,34 @@ Object.defineProperty(obj2, "x", {
 4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
 5.@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参； 
 ```
+
+二、Vue中的事件修饰符
+
+```
+1.prevent:阻止默认事件（常用）;
+2.stop：阻止事件冒泡（常用）;
+3.once：事件只触发一次（常用）;
+4.capture：使用事件的捕获模式;
+5.self：只有event.target是当前操作的元素时才触发事件;
+6.passive：事件的默认行为立即执行，无需等待事件回调执行完牛;
+```
+
+三、键盘事件
+```
+1.vue中常用的按键別名：
+  回车 => enter
+  删除 => delete（捕获“删除”和“退格”键）
+  退出 => esc
+  空格 => space
+  换行 => tab(特殊,必须配合keydown使用)
+  上 => up
+  下 => down
+  左 => 1eft
+  右 => right
+2.vue未提供別名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case（短横线命名）
+3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
+  a.配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发。
+  b.配合keydown使用：正常触发事件。
+4. 也可以使用keycode去指定具体的按键（不推荐）;
+5.Vue.config.keycodes. 自定义键名=键码，可以去定制按键别名（不推荐）;
+```
