@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>非单文件组件的基本使用</title>
     <script src="../js/vue.js"></script>
 </head>
+
 <body>
-<!--
+    <!--
 			Vue中使用组件的三大步骤：
 					一、定义组件(创建组件)
 					二、注册组件
@@ -29,34 +31,34 @@
 			三、编写组件标签：
 							<school></school>
 -->
-<div id="root">
-    <h1>
-        {{ msg }}
-    </h1>
-    <hello></hello>
-    <!--使用组件-->
-    <school></school>
-    <hr/>
-    <student></student>
-    <hr/>
-</div>
-<div id="root2">
-   <h2>root2容器</h2>
-    <hello></hello>
-</div>
-<script type="text/javascript">
-    Vue.config.productionTip = false;
+    <div id="root">
+        <h1>
+            {{ msg }}
+        </h1>
+        <hello></hello>
+        <!--使用组件-->
+        <school></school>
+        <hr />
+        <student></student>
+        <hr />
+    </div>
+    <div id="root2">
+        <h2>root2容器</h2>
+        <hello></hello>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
 
-    //全部注册
+        //全部注册
 
-    /**
-     * 想用组件的三个步骤
-     * 1.创建组件
-     * 2.注册组件
-     * 3.使用组件
-     */
+        /**
+         * 想用组件的三个步骤
+         * 1.创建组件
+         * 2.注册组件
+         * 3.使用组件
+         */
         //创建school组件
-    const school = Vue.extend({
+        const school = Vue.extend({
             template: `
               <div>
               <h2>学校名称:{{ schoolName }}</h2>
@@ -73,62 +75,63 @@
                     address: '武汉',
                 }
             },
-            methods:{
-                showName(){
+            methods: {
+                showName() {
                     alert(this.schoolName)
                 }
             }
         })
-    //创建school组件
-    const student = Vue.extend({
-        template: `
+        //创建school组件
+        const student = Vue.extend({
+            template: `
             <div>
               <h2>学生名字:{{ studentName }}</h2>
               <h2>学生年龄:{{ age }}</h2>
             </div>
         `,
-        data() {
-            return {
-                studentName: 'Jone',
-                age: 18
+            data() {
+                return {
+                    studentName: 'Jone',
+                    age: 18
+                }
             }
-        }
-    });
+        });
 
 
-    const hello = Vue.extend({
-        template:`
+        const hello = Vue.extend({
+            template: `
           <div>
             <h2>你好世界,{{ name }}</h2>
           </div>
         `,
-        data(){
-            return {
-                name: 'panyue'
+            data() {
+                return {
+                    name: 'panyue'
+                }
             }
-        }
-    });
+        });
 
-    //hello组件
-    Vue.component('hello', hello); //全局注册hello 就代表所有的vm都可以用hello组件了
+        //hello组件
+        Vue.component('hello', hello); //全局注册hello 就代表所有的vm都可以用hello组件了
 
-    // 创建vm
-    new Vue({
-        el: "#root",
-        //配置组件(局部注册)
-        data:{
-            msg: 'hello world'
-        },
-        components: {
-            school,
-            student
-        },
-    })
+        // 创建vm
+        new Vue({
+            el: "#root",
+            //配置组件(局部注册)
+            data: {
+                msg: 'hello world'
+            },
+            components: {
+                school,
+                student
+            },
+        })
 
-    new Vue({
-       el: '#root2',
-    });
+        new Vue({
+            el: '#root2',
+        });
 
-</script>
+    </script>
 </body>
+
 </html>

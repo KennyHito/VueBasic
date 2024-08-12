@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .demo{
+        .demo {
             background: orange;
         }
     </style>
 </head>
+
 <body>
     <button id="btn">
         点我创建一个输入框
     </button>
     <script type="text/javascript">
-
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
         const btn = document.querySelector('#btn');
         btn.onclick = () => {
             const input = document.createElement('input');
@@ -37,4 +39,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>几个基本的注意点</title>
     <script src="../js/vue.js"></script>
 </head>
+
 <body>
-<div id="root">
-    <!--
+    <div id="root">
+        <!--
 			几个注意点：
 					1.关于组件名:
 								一个单词组成：
@@ -31,60 +33,61 @@
 					3.一个简写方式：
 								const school = Vue.extend(options) 可简写为：const school = options
 		-->
-    <h1>{{ msg }}</h1>
-    <hello></hello>
-<!--    <school/>-->
-<!--    <school/>-->
-<!--    <school/>-->
-    <school></school>
-    <school></school>
-    <school></school>
-</div>
-<script type="text/javascript">
-    Vue.config.productionTip = false;
+        <h1>{{ msg }}</h1>
+        <hello></hello>
+        <!--    <school/>-->
+        <!--    <school/>-->
+        <!--    <school/>-->
+        <school></school>
+        <school></school>
+        <school></school>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
 
-    const s = Vue.extend({
-        template: `
+        const s = Vue.extend({
+            template: `
           <div>
             <h2>学校名称:{{ name }}</h2>
             <h2>学校地址:{{ address }}</h2>
           </div>
         `,
-        data(){
-            return {
-                name: '武汉科技大学',
-                address: '武汉'
-            }
-        },
-        name: 'test' //该配置是指定组件在开发者工具中指定的名称
-    });
+            data() {
+                return {
+                    name: '武汉科技大学',
+                    address: '武汉'
+                }
+            },
+            name: 'test' //该配置是指定组件在开发者工具中指定的名称
+        });
 
-    //创建组件的简写 (不需要vue.extend)
-    const hello = {
-        template: `
+        //创建组件的简写 (不需要vue.extend)
+        const hello = {
+            template: `
           <div>
             <h1>{{ msg }}</h1>
          </div>
         `,
-        data(){
-            return {
-                msg:"hello"
+            data() {
+                return {
+                    msg: "hello"
+                }
             }
         }
-    }
 
 
 
-    new Vue({
-        el: "#root",
-        data:{
-          msg: '欢迎学习vue'
-        },
-        components:{
-            school:s,
-            hello
-        }
-    })
-</script>
+        new Vue({
+            el: "#root",
+            data: {
+                msg: '欢迎学习vue'
+            },
+            components: {
+                school: s,
+                hello
+            }
+        })
+    </script>
 </body>
+
 </html>

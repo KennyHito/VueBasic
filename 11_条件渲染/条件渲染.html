@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>条件渲染</title>
-    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8" />
+    <title>天气案例</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
+
 <body>
-<!--
+    <!--
 				条件渲染：
 							1.v-if
 										写法：
@@ -28,38 +30,40 @@
 							3.备注：使用v-if的时，元素可能无法获取到，而使用v-show一定可以获取到。
 		 -->
 
-<div id="root">
-    <!--v-show要能转换为一个布尔值 v-show条件渲染-->
-<!--    <h2 v-show="a">欢迎来到{{ name }}</h2>-->
+    <div id="root">
+        <!--v-show要能转换为一个布尔值 v-show条件渲染-->
+        <!--    <h2 v-show="a">欢迎来到{{ name }}</h2>-->
 
-<!--    <h2 v-show="1===1">欢迎来到{{ name }}</h2>-->
-<!--    <button @click='a = !a'>{{ a ? '隐藏': '显示' }}</button>-->
-    <!--使用v-if来进行条件渲染 -->
-<!--    <h2 v-if="1">欢迎来到{{ name }}</h2>-->
-    <!--v-if v-else-if v-else记住不能打断，要连着写-->
-<!--    <h2>当前的n值是{{ n }}</h2>-->
-    <button @click="n++">点我n+1</button>
-<!--    <div v-if="n === 1">angular</div>-->
-<!--    <div v-else-if="n === 2">react</div>-->
-<!--&lt;!&ndash;    <div>111</div>&ndash;&gt;-->
-<!--    <div v-else-if="n === 3">vue js</div>-->
-<!--    <div v-else>not found</div>-->
+        <!--    <h2 v-show="1===1">欢迎来到{{ name }}</h2>-->
+        <!--    <button @click='a = !a'>{{ a ? '隐藏': '显示' }}</button>-->
+        <!--使用v-if来进行条件渲染 -->
+        <!--    <h2 v-if="1">欢迎来到{{ name }}</h2>-->
+        <!--v-if v-else-if v-else记住不能打断，要连着写-->
+        <!--    <h2>当前的n值是{{ n }}</h2>-->
+        <button @click="n++">点我n+1</button>
+        <!--    <div v-if="n === 1">angular</div>-->
+        <!--    <div v-else-if="n === 2">react</div>-->
+        <!--&lt;!&ndash;    <div>111</div>&ndash;&gt;-->
+        <!--    <div v-else-if="n === 3">vue js</div>-->
+        <!--    <div v-else>not found</div>-->
 
-    <!--v-if与template的配合使用-->
-    <template v-if="n === 1">
-        <h2>你好</h2>
-        <h2>shanghai</h2>
-        <h2>shenzhen</h2>
-    </template>
-</div>
-<script type="text/javascript">
-    const vm = new Vue({
-        el: '#root',
-        data:{
-            name: 'shanghai',
-            n:0
-        }
-    })
-</script>
+        <!--v-if与template的配合使用-->
+        <template v-if="n === 1">
+            <h2>你好</h2>
+            <h2>shanghai</h2>
+            <h2>shenzhen</h2>
+        </template>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: 'shanghai',
+                n: 0
+            }
+        })
+    </script>
 </body>
+
 </html>

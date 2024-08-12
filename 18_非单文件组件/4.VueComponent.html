@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VueComponent</title>
     <script src="../js/vue.js"></script>
 </head>
+
 <body>
-<!--
+    <!--
 			关于VueComponent：
 						1.school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。
 
@@ -29,76 +31,77 @@
 					    6.因为组件是可复用的 Vue 实例，所以它们与 new Vue 接收相同的选项，例如 data、computed、watch、methods 以及生命周期钩子等。仅有的例外是像 el 这样根实例特有的选项。
 					      所以vm与vc属性配置并不是一模一样，尽管vc底层复用了很多vm的逻辑
 -->
-<div id="root">
-    <school></school>
-    <hello>
-    </hello>
-</div>
-<script type="text/javascript">
-    Vue.config.productionTip = false;
+    <div id="root">
+        <school></school>
+        <hello>
+        </hello>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
 
-    const school = Vue.extend({
-        template: `
+        const school = Vue.extend({
+            template: `
           <div>
              <h1>学校名称:{{ name }}</h1>
              <h1>学校地址:{{ address }}</h1>
              <button @click="showname">点我提示学校名</button>
           </div>
         `,
-        data(){
-            return {
-                name: '武汉科技大学',  //vuecomponent的实例对象
-                address:'武汉'
+            data() {
+                return {
+                    name: '武汉科技大学',  //vuecomponent的实例对象
+                    address: '武汉'
+                }
+            },
+            methods: {
+                showname() {
+                    console.log(this);
+                    console.log(this.name);
+                }
             }
-        },
-        methods:{
-            showname(){
-              console.log(this);
-              console.log(this.name);
-           }
-        }
-    });
+        });
 
-    // console.log(typeof school, school); //所谓的组件就是构造函数(VueComponent);
+        // console.log(typeof school, school); //所谓的组件就是构造函数(VueComponent);
 
 
-    //测试组件
-    const test = Vue.extend({
-       template:  `<h1>panyue</h1>`
-    });
+        //测试组件
+        const test = Vue.extend({
+            template: `<h1>panyue</h1>`
+        });
 
-    //hello组件
-    const hello = Vue.extend({
-        template:`
+        //hello组件
+        const hello = Vue.extend({
+            template: `
           <div>
           <h1>{{ msg }}</h1>
           <test></test>
         </div>`,
-        data(){
-            return {
-                msg: '你好'
+            data() {
+                return {
+                    msg: '你好'
+                }
+            },
+            components: {
+                test
             }
-        },
-        components: {
-            test
-        }
-    })
+        })
 
 
-    const vm = new Vue({
-        el:"#root",
-        components:{
-            school,
-            hello
-        }
-    });
+        const vm = new Vue({
+            el: "#root",
+            components: {
+                school,
+                hello
+            }
+        });
 
-    //验证school与hello并不是同一个VueComponent构造函数
-    // school.a = 99;
-    // console.log('@', school);
-    // console.log('#', hello);
-    // console.log(school === hello);
-    // console.log(school.a, hello.a);
-</script>
+        //验证school与hello并不是同一个VueComponent构造函数
+        // school.a = 99;
+        // console.log('@', school);
+        // console.log('#', hello);
+        // console.log(school === hello);
+        // console.log(school.a, hello.a);
+    </script>
 </body>
+
 </html>
