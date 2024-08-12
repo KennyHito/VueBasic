@@ -8,6 +8,7 @@
   <script type="text/javascript" src="../js/vue.js"></script>
   <!-- 浏览器书签栏的小图标设置 -->
   <link rel="icon" href="../img/favicon.ico" />
+
 </head>
 <!-- 
       1.vue中常用的按键別名：
@@ -41,10 +42,13 @@
     <input type="text" @keydown.p="showInfo" placeholder="按下p提示输入" />
     <!--键盘事件的修饰符也可以连用-->
     <input type="text" @keydown.command.g="showInfo" placeholder="按下command和g提示输入" />
+
+    <input type="text" @keydown="showInfo" placeholder="实时获取名称和编码" />
   </div>
 
   <script type="text/javascript">
     Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+
     new Vue({
       el: '#root',
       data: {
@@ -56,7 +60,7 @@
           //     console.log(e.target.value);
           // }
           console.log(e.target.value);
-          console.log(e.key); //按下的名字
+          console.log(e.key, e.keyCode); //按下的名字
         }
       }
     })
