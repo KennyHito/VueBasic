@@ -46,6 +46,7 @@
         //     //get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
         //     //get什么时候调用？1.初次读取fullName时。2.所依赖的数据发生变化时。
         //     console.log("get被调用了!");
+        //     console.log("我是谁------>", this);//此处的this是vm
         //     return this.firstName + "-" + this.lastName;
         //   },
         //   set(value) {
@@ -60,7 +61,6 @@
         //如果只取值,就可以进行以下简写
         fullName() {
           console.log("get被调用了!");
-          console.log("我是谁------>", this);
           return this.firstName + "-" + this.lastName;
         }
       },
