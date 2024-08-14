@@ -48,6 +48,7 @@
           immediate: true,//初始化时让handler调用一下
           // handler什么时候调用？当isHot发生改变时。
           handler(newValue, oldValue) {
+            //newValue和oldValue 不一定非要使用这个两个单词,可以用a,b,c,d等等
             console.log("isHot被修改了", newValue, oldValue)
           }
         },
