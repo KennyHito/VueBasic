@@ -80,7 +80,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
 
 <h4>六、数据代理</h4>
 
-一、通过举例的方式回顾Object.defineProperty方法
+1、通过举例的方式回顾Object.defineProperty方法
 
 ```
 let number = 18;
@@ -114,7 +114,7 @@ let number = 18;
     console.log(person);
 ```
 
-二、何为数据代理:通过一个对象代理对另一个对象中属性的操作(读/写)
+2、何为数据代理:通过一个对象代理对另一个对象中属性的操作(读/写)
 ```
 let obj = { x: 100 };
 let obj2 = { y: 200 };
@@ -128,7 +128,7 @@ Object.defineProperty(obj2, "x", {
 });
 ```
 
-三、vue中数据代理
+3、vue中数据代理
 ```
 1.Vue中的数据代理：
   通过vm对象来代理data对象中属性的操作（读/写）
