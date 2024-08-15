@@ -4,7 +4,7 @@ B站尚硅谷在线学习视频链接:
 [尚硅谷Vue2.0+Vue3.0全套教程丨vuejs从入门到精通](
 https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_source=0aba82a4002c00e3a072b82df5f53868)
 
-<h4>一、初识 Vue</h4>
+<h3>一、初识 Vue</h4>
 
 ```
 1.想让vue工作，就必须创建一个vue实例，且要传入一个配置对象;
@@ -26,7 +26,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
     (2).for(){}
 ```
 
-<h4>二、Vue模板语法有2大类</h4>
+<h3>二、Vue模板语法有2大类</h4>
 
 ```
 1.插值语法：
@@ -40,7 +40,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
 备注:vue 中有很多的指今，且形式都是：v-????，此处我们具体拿 v-bind 举个例子。
 ```
 
-<h4>三、Vue中有2种数据绑定的方式</h4>
+<h3>三、Vue中有2种数据绑定的方式</h4>
 
 ```
 1.单向绑定(v-bind)：数据只能从 data 流向页面 
@@ -51,7 +51,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
 2.v-model:value可以简写为v-model，因为v-model默认收集的就是value值。
 ```
 
-<h4>四、data与el的2种写法</h4>
+<h3>四、data与el的2种写法</h4>
 
 ```
 1.e1有2种写法
@@ -67,7 +67,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
   由vue管理的函数,一定不要写箭头函数，一旦写了箭头函数，this就不再是vue实例了。
 ```
 
-<h4>五、MVVM模型</h4>
+<h3>五、MVVM模型</h4>
 
 ```
 1. M：模型(Model): data中的数据
@@ -78,7 +78,7 @@ https://www.bilibili.com/video/BV1Zy4y1K7SH/?p=6&spm_id_from=pageDriver&vd_sourc
   2.vm身上所有的属性及vue原型上所有属性，在vue模板中都可以直接使用。
 ```
 
-<h4>六、数据代理</h4>
+<h3>六、数据代理</h4>
 
 1、通过举例的方式回顾Object.defineProperty方法
 
@@ -142,7 +142,7 @@ Object.defineProperty(obj2, "x", {
 ![数据代理图示](https://github.com/KennyHito/StudyVue/blob/main/img/%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%9B%BE%E7%A4%BA.png)
 
 
-<h4>七、事件处理</h4>
+<h3>七、事件处理</h4>
 
 一、事件的基本使用
 
@@ -185,7 +185,7 @@ Object.defineProperty(obj2, "x", {
 5.Vue.config.keycodes. 自定义键名=键码，可以去定制按键别名（不推荐）;
 ```
 
-<h4>八、计算属性</h4>
+<h3>八、计算属性</h4>
 
 ```
 1.定义：要用的属性不存在，要通过己有属性计算得来。
@@ -199,7 +199,7 @@ Object.defineProperty(obj2, "x", {
   b.如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变。
   ```
 
-<h4>九、监视属性watch</h4>
+<h3>九、监视属性watch</h3>
 
 ```
 1.当被监视的属性变化时，回调函数自动调用，进行相关操作
@@ -207,4 +207,15 @@ Object.defineProperty(obj2, "x", {
 3.监视的两种写法：
   a.new Vue吋传入watch配置
   b.通过vm.$watch监视
+```
+
+**总结: computed和watch之间的区别**
+
+```
+1.computed能完成的功能，watch都可以完成。
+2.watch能完成的功能，computed不一定能完成，例如：watch可以进行异步操作,比如下方的定时器。
+
+两个重要的小原则：
+1.所有被vue管理的函数，最好写成普通函数，这样this的指向才是vm或组件实例对象。
+2.所有不被vue所管理的函数（定时器的回调函数、ajax的回调函数、Promise的回调函数等），最好写成箭头函数，这样this的指向才是vm 或 组件实例对象。
 ```
