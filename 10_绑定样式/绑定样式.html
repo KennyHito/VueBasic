@@ -56,29 +56,27 @@
 <body>
   <!-- 容器 -->
   <div id="root">
-    <!-- 鄉定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定(常用) -->
+    <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定(常用) -->
     <div class="basic" :class="mood" @click="changeMood">{{schoolName}}</div>
 
-    <br />
-    <br />
+    <br /><br />
 
-    <!-- 鄉定class样式--数组写法，适用于：要绑定的样式个数不确定,名字也不确定(常用) -->
+    <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定,名字也不确定(常用) -->
     <div class="basic" :class="classArr">{{schoolName}}</div>
 
-    <br />
-    <br />
+    <br /><br />
 
-    <!-- 鄉定class样式--对象写法，适用于：要绑定的样式个数确定,名字也确定,但要动态决定用不用(常用) -->
+    <!-- 绑定class样式--对象写法，适用于：要绑定的样式个数确定,名字也确定,但要动态决定用不用(常用) -->
     <div class="basic" :class="classObj">{{schoolName}}</div>
 
-    <br />
-    <br />
+    <br /><br />
 
-    <!-- 鄉定style样式--对象写法-->
+    <!-- 绑定style样式--对象写法-->
     <div class="basic" :style="styleObj">{{schoolName}}</div>
-    <br />
-    <br />
-    <!-- 鄉定style样式--数组写法-->
+
+    <br /><br />
+
+    <!-- 绑定style样式--数组写法-->
     <div class="basic" :style="styleArr">{{schoolName}}</div>
   </div>
 
