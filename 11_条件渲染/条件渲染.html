@@ -31,27 +31,27 @@
 
     <div id="root">
         <!--v-show要能转换为一个布尔值 v-show条件渲染-->
-        <!--    <h2 v-show="a">欢迎来到{{ name }}</h2>-->
+        <h2 v-show="1===1">欢迎来到{{ name }}</h2>
+        <h2 v-show="a">欢迎来到{{ address }}</h2>
+        <button @click='a = !a'>{{ a ? '隐藏': '显示' }}</button>
 
-        <!--    <h2 v-show="1===1">欢迎来到{{ name }}</h2>-->
-        <!--    <button @click='a = !a'>{{ a ? '隐藏': '显示' }}</button>-->
         <!--使用v-if来进行条件渲染 -->
-        <!--    <h2 v-if="1">欢迎来到{{ name }}</h2>-->
-        <!--v-if v-else-if v-else记住不能打断，要连着写-->
-        <!--    <h2>当前的n值是{{ n }}</h2>-->
+        <h2 v-if="1">欢迎来到{{ name }}</h2>
+
         <h2>当前的n值是{{ n }}</h2>
         <button @click="n++">点我n+1</button>
-        <!--    <div v-if="n === 1">angular</div>-->
-        <!--    <div v-else-if="n === 2">react</div>-->
-        <!--&lt;!&ndash;    <div>111</div>&ndash;&gt;-->
-        <!--    <div v-else-if="n === 3">vue js</div>-->
-        <!--    <div v-else>not found</div>-->
+        <!-- v-if v-else-if v-else记住不能打断，要连着写 -->
+        <div v-if="n === 1">angular</div>
+        <div v-else-if="n === 2">react</div>
+        <!-- <div>111</div> -->
+        <div v-else-if="n === 3">vue js</div>
+        <div v-else>not found</div>
 
         <!--v-if与template的配合使用-->
         <template v-if="n === 1">
             <h2>你好</h2>
-            <h2>shanghai</h2>
-            <h2>shenzhen</h2>
+            <h2>北京朝阳区</h2>
+            <h2>北京昌平区</h2>
         </template>
     </div>
     <script type="text/javascript">
@@ -59,8 +59,10 @@
         const vm = new Vue({
             el: '#root',
             data: {
-                name: 'shanghai',
-                n: 0
+                name: '清华大学',
+                address: "北京",
+                n: 0,
+                a: true
             }
         })
     </script>
