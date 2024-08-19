@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
     <title>列表过滤</title>
-    <script src="../js/vue.js"></script>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
 
 <body>
@@ -21,34 +21,40 @@
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
-        //用监视属性书写功能
+        //💊用监视属性书写功能
         // new Vue({
-        //     el:'#root',
+        //     el: '#root',
         //     data: {
-        //         keyword : '',
+        //         keyword: '',
         //         persons: [
-        //             {id: "001", name:'周冬雨', age:20, sex:'女'},
-        //             {id: "002", name:'马冬梅', age:19, sex:'女'},
-        //             {id: "003", name:'周杰伦', age:21, sex:'男'},
-        //             {id: "004", name:'温兆伦', age:22, sex: '男'},
+        //             { id: "001", name: '周冬雨', age: 20, sex: '女' },
+        //             { id: "002", name: '马冬梅', age: 19, sex: '女' },
+        //             { id: "003", name: '周杰伦', age: 21, sex: '男' },
+        //             { id: "004", name: '温兆伦', age: 22, sex: '男' },
         //         ],
         //         filPersons: []
         //     },
         //     //watch监听用户输入项keyword的变化
-        //     watch:{
+        //     watch: {
         //         keyword: {
-        //            immediate: true, //上来就进行监视获得到的newV是''
-        //            handler(newV){
-        //                // console.log(newV)
-        //                //不要修改元数据，这样只会越写越少
-        //                //注意一个某个字符串.indexOf('')是0而不是-1(都包含空字符串)
-        //                this.filPersons = this.persons.filter(p => p.name.indexOf(newV) !== -1);
-        //            }
+        //             immediate: true, //上来就进行监视获得到的newV是''
+        //             handler(newV) {
+        //                 //console.log(newV)
+        //                 //不要修改元数据，这样只会越写越少
+        //                 //注意一个某个字符串.indexOf('')是0而不是-1(都包含空字符串)
+        //                 //写法一
+        //                 return this.persons.filter((p) => {
+        //                     return p.name.indexOf(this.keyword) !== -1;
+        //                 })
+
+        //                 //写法二
+        //                 // return this.persons.filter(p => p.name.indexOf(this.keyword) !== -1);
+        //             }
         //         }
         //     }
         // })
-        //用计算属性书写功能
 
+        //💊用计算属性书写功能
         //当computed和watch都可以实现基本功能时优先考虑computed (重要)
         new Vue({
             el: '#root',
@@ -63,7 +69,13 @@
             },
             computed: {
                 filPersons() {
-                    return this.persons.filter(p => p.name.indexOf(this.keyword) !== -1);
+                    //写法一
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyword) !== -1;
+                    })
+
+                    //写法二
+                    // return this.persons.filter(p => p.name.indexOf(this.keyword) !== -1);
                 }
             }
         })
