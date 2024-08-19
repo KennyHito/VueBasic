@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>初始vue</title>
+  <title>自我练习</title>
   <!-- 引入vue -->
   <script type="text/javascript" src="../js/vue.js"></script>
   <!-- 浏览器书签栏的小图标设置 -->
@@ -33,7 +33,13 @@
     <!-- 简写 -->
     <div>(简写)单向数据绑定: <input type="text" :value="dataName" /></div>
     <div>(简写)双向数据绑定: <input type="text" v-model="dataName" /></div>
+
+    <br />
     <!---------------------------------华丽的分割线------------------------------------>
+
+    <ul v-for="item in dataArr">
+      <li>{{item}}</li>
+    </ul>
   </div>
 
   <script type="text/javascript">
@@ -49,7 +55,8 @@
           url: "https://www.tsinghua.edu.cn/",
         },
         dataName: "abc",
-        age: 66
+        age: 66,
+        dataArr: ["213", "12", "56", "28", "75", "97", "34", "55", "95"]
       },
     });
     // v.$mount("#root");//el第二种写法
