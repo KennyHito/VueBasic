@@ -18,15 +18,16 @@
         <hr />
         <h1>学生信息</h1>
         <button @click.once="addSex">添加一个性别属性,默认值是男</button>
-        <h2>学生姓名:{{ stu.name }}</h2>
-        <h2>学生真实年龄:{{ stu.age.rage }}</h2>
-        <h2>学生对外年龄:{{ stu.age.sage}}</h2>
-        <h2 v-if="stu.sex">学生性别: {{ stu.sex }}</h2>
+        <h2>学生姓名:{{ student.name }}</h2>
+        <h2>学生真实年龄:{{ student.age.rage }}</h2>
+        <h2>学生对外年龄:{{ student.age.sage}}</h2>
+        <h2 v-if="student.sex">学生性别: {{ student.sex }}</h2>
         <h2>朋友们</h2>
-        <ul v-for="(f, index) in stu.friends" :key="index">
+        <ul v-for="(f, index) in student.friends" :key="index">
             <li>{{ f.name }} -- {{ f.age }}</li>
         </ul>
     </div>
+
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
         const vm = new Vue({
@@ -34,7 +35,7 @@
             data: {
                 name: '武汉科技大学',
                 address: '武汉',
-                stu: {
+                student: {
                     name: 'tom',
                     age: {
                         rage: 12,
@@ -50,9 +51,9 @@
                 addSex() {
                     //这里this === vm
                     //利用vue.set(或者vm.$set())api能够添加的属性变为响应式属性
-                    //注意对象不能是 Vue 实例，或者 Vue 实例的根数据对象。
-                    Vue.set(this.stu, 'sex', '男')
-                    // this.$set(this.stu, 'sex', '男');
+                    //注意对象不能是 Vue 实例，或者 Vue 实例的根数据对象(也就是不能直接在data中添加属性)。
+                    Vue.set(this.student, 'sex', '男')
+                    // this.$set(this.student, 'sex', '男');
                 }
             }
         })
