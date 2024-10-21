@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>vue中表单数据的收集</title>
-    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8" />
+    <title>Vue中表单数据的收集</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
 
 <body>
@@ -58,7 +58,7 @@
             <br />
             其他信息<textarea v-model.lazy="userInfo.other"></textarea>
             <br />
-            <input type="checkbox" v-model="userInfo.ifAgree" />阅读并接受<a href="https://www.google.com.tw">《用户协议》</a>
+            <input type="checkbox" v-model="userInfo.ifAgree" />阅读并接受<a href="https://www.baidu.com">《用户协议》</a>
             <button>提交数据</button>
         </form>
     </div>
