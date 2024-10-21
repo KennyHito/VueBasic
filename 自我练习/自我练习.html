@@ -37,9 +37,22 @@
     <br />
     <!---------------------------------华丽的分割线------------------------------------>
 
-    <ul v-for="item in dataArr">
-      <li>{{item}}</li>
-    </ul>
+    <div v-for="item in dataArr">
+      {{item}}
+    </div>
+
+    <!---------------------------------华丽的分割线------------------------------------>
+    <button @click="onClick(1)">数组最前面增加一个元素</button>
+    <br />
+    <button @click="onClick(2)">数组最末尾增加一个元素</button>
+    <br />
+    <button @click="onClick(3)">移除数组最末尾一个元素</button>
+    <br />
+    <button @click="onClick(4)">移除数组最前面一个元素</button>
+
+    <br />
+    <br />
+    <button @click="onClick()">测试一下</button>
   </div>
 
   <script type="text/javascript">
@@ -57,6 +70,23 @@
         dataName: "abc",
         age: 66,
         dataArr: ["213", "12", "56", "28", "75", "97", "34", "55", "95"]
+      },
+      methods: {
+        onClick(index) {
+          if (index === 1) {
+            //数组最前面增加一个元素
+            this.dataArr.unshift('1');
+          } else if (index === 2) {
+            this.dataArr.push('100');
+          } else if (index === 3) {
+            this.dataArr.pop();
+          } else if (index === 4) {
+            this.dataArr.shift();
+          } else {
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            console.log(fruits[0].toString());
+          }
+        }
       },
     });
     // v.$mount("#root");//el第二种写法

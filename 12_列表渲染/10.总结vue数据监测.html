@@ -45,7 +45,7 @@
         <button @click="updateFirstFriendName">修改第一个朋友的名字为：张三</button> <br />
         <button @click="addHobby">添加一个爱好</button> <br />
         <button @click="updateHobby">修改第一个爱好为：开车</button> <br />
-        <button @click="removeSmoke">过滤掉爱好中的抽烟</button> <br />
+        <button @click="removeSmoke">过滤掉爱好中的喝酒</button> <br />
         <h3>姓名：{{student.name}}</h3>
         <h3>年龄：{{student.age}}</h3>
         <h3 v-if="student.sex">性别：{{student.sex}}</h3>
@@ -100,7 +100,7 @@
                 },
                 removeSmoke() {
                     //直接替换
-                    this.student.hobby = this.student.hobby.filter(h => h !== '抽烟');
+                    this.student.hobby = this.student.hobby.filter(h => h !== '喝酒');
                 }
             }
         });
