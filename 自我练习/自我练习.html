@@ -22,6 +22,10 @@
     <br />
     <!-- v-bind可以简写成冒号,如写法二 -->
     <a :href="school.url">(写法二):{{name}}去{{school.name}}读书</a>
+    <br />
+    <a>问: 学校地址在哪里?</a>
+    <br />
+    <a v-if="school.address">答: 地址在{{school.address}}</a>
     <!---------------------------------华丽的分割线------------------------------------>
     <h1>数据绑定</h1>
     <!-- 普通写法 -->
@@ -42,17 +46,24 @@
     </div>
 
     <!---------------------------------华丽的分割线------------------------------------>
-    <button @click="onClick(1)">数组最前面增加一个元素</button>
+    <button @click="onClick(1)">数组最前面增加一个元素(unshift)</button>
     <br />
-    <button @click="onClick(2)">数组最末尾增加一个元素</button>
+    <button @click="onClick(2)">移除数组最前面一个元素(shift)</button>
     <br />
-    <button @click="onClick(3)">移除数组最末尾一个元素</button>
+    <button @click="onClick(3)">数组最末尾增加一个元素(push)</button>
     <br />
-    <button @click="onClick(4)">移除数组最前面一个元素</button>
-
+    <button @click="onClick(4)">移除数组最末尾一个元素(pop)</button>
     <br />
+    <button @click="onClick(5)">修改数组最前面一个元素(splice)</button>
     <br />
-    <button @click="onClick()">测试一下</button>
+    <button @click="onClick(6)">对数组元素进行升序(sort)</button>
+    <br />
+    <button @click="onClick(7)">对数组元素进行降序(reverse)</button>
+    <br />
+    <button @click="onClick(8)">给学校增加一个地址属性</button>
+    <br />
+    <button @click="onClick()">测试打印</button>
+    <br />
   </div>
 
   <script type="text/javascript">
@@ -69,22 +80,34 @@
         },
         dataName: "abc",
         age: 66,
-        dataArr: ["213", "12", "56", "28", "75", "97", "34", "55", "95"]
+        dataArr: ["21", "40", "33", "10", "53", "68", "30", "20", "80"]
       },
       methods: {
         onClick(index) {
           if (index === 1) {
-            //数组最前面增加一个元素
-            this.dataArr.unshift('1');
+            this.dataArr.unshift('0');
           } else if (index === 2) {
-            this.dataArr.push('100');
-          } else if (index === 3) {
-            this.dataArr.pop();
-          } else if (index === 4) {
             this.dataArr.shift();
+          } else if (index === 3) {
+            this.dataArr.push('100');
+          } else if (index === 4) {
+            this.dataArr.pop();
+          } else if (index === 5) {
+            this.dataArr.splice(0, 1, '15');
+          } else if (index === 6) {
+            this.dataArr.sort();
+          } else if (index === 7) {
+            this.dataArr.reverse();
+          } else if (index === 8) {
+            this.$set(this.school, 'address', '北京市海淀区清华园');
           } else {
             var fruits = ["Banana", "Orange", "Apple", "Mango"];
-            console.log(fruits[0].toString());
+            console.log(fruits.toString());
+
+            var dataArr111 = [['a', 'b', 'c'], [3, 2, 1]];
+            dataArr111[0].reverse();
+            dataArr111[1].sort();
+            console.log(dataArr111[0], dataArr111[1]);
           }
         }
       },
