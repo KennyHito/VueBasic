@@ -304,6 +304,7 @@ v-for指令:
 ```
 
 <h3>十三、收集表单数据</h3>
+
 ```
 若<input type="text"/>，则v-model收集的是value值，用户输入的就是value值。
 若<input type="radio"/>，则v-model收集的是value值，且要给标签配置value值。
