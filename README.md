@@ -284,3 +284,21 @@ v-for指令:
 ```
 ![图示1](https://github.com/KennyHito/StudyVue/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/index%E4%BD%9C%E4%B8%BAkey%E6%97%B6dom%E9%94%99%E4%B9%B1%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
 ![图示2](https://github.com/KennyHito/StudyVue/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/%E6%95%B0%E6%8D%AEid%E4%BD%9C%E4%B8%BAkey%E7%9A%84%E7%9C%9F%E5%AE%9Edom%E6%B8%B2%E6%9F%93%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE.PNG)
+
+3、如何监测对象中的数据？
+```
+通过setter实现监视，且要在new Vue时就传入要监测的数据。
+  (1).对象中后追加的属性，Vue默认不做响应式处理
+  (2).如需给后添加的属性做响应式，请使用如下API：
+      Vue.set(target，propertyName/index，value) 或 vm.$set(target，propertyName/index，value)
+```
+
+4、vue监测数据改变的原理_数组
+```
+通过包裹数组更新元素的方法实现，本质就是做了两件事：
+  (1).调用原生对应的方法对数组进行更新。
+  (2).重新解析模板，进而更新页面。
+    在Vue修改数组中的某个元素一定要用如下方法：
+        a.使用这些API:push()、pop()、shift()、unshift()、splice()、sort()、reverse()
+		    b.Vue.set() 或 vm.$set()
+```
