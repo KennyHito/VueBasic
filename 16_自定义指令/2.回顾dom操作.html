@@ -1,27 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>2.回顾dom操作</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
     <style>
         .demo {
             background: orange;
         }
     </style>
+
 </head>
 
 <body>
-    <button id="btn">
+    <button id="myButton">
         点我创建一个输入框
     </button>
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
-        const btn = document.querySelector('#btn');
-        btn.onclick = () => {
+        // 获取按钮元素
+        var button = document.getElementById('myButton');
+        button.onclick = () => {
+            console.log('click');
             const input = document.createElement('input');
             input.className = 'demo';
             input.value = "99";
