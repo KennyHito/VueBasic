@@ -381,6 +381,8 @@ b.可利用它跳过：没有使用指令语法、没有使用插值语法的节
 ```
 
 <h3>十六、自定义指令</h3>
+一、自定义指令
+```
 1、定义指令的配置项: directives
   (1).局部指令：
       new Vue({directives:{指令名:配置对象} })   或  new Vue({directives: {指令名:回调函数}})
@@ -395,3 +397,46 @@ b.可利用它跳过：没有使用指令语法、没有使用插值语法的节
 3、备注：
   (1).指令定义时不加v-，但使用时要加v-；
   (2).指令名如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名。
+```
+
+二、回顾dom操作
+```
+  var button = document.getElementById('myButton');
+  button.onclick = () => {
+    console.log('click');
+    const input = document.createElement('input');
+    input.className = 'demo';
+    input.value = "99";
+    input.onclick = () => alert('你好,世界');
+    console.log(input.parentElement); //此时它的parentElement属性是null，无法获取，因为它并不在dom树中
+    //将该input插入到dom树中
+    document.body.appendChild(input);
+    //input出现的时候，让其自动获取焦点
+    //注意一定要在input框被放到dom树中再运行focus函数，否则它将无法自动获取焦点
+    //一定要放在dom树中
+    input.focus();
+    input.parentElement.style.backgroundColor = 'skyblue';
+  }
+```
+
+<h3>十七、生命周期</h3>
+一、生命周期
+```
+  1.又名：生命周期回调函数、生命周期函数、生命周期钩子。
+  2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。
+  3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。
+  4.生命周期函数中的this指向是vm 或 组件实例对象。
+```
+
+二、常用的生命周期钩子
+```
+  1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+  2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+```
+
+三、关于销毁Vue实例
+```
+  1.销毁后借助Vue开发者工具看不到任何信息。
+  2.销毁后自定义事件会失效，但原生DOM事件依然有效。(click之类的原生事件依然会被调用)
+  3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+```
