@@ -435,6 +435,8 @@ b.可利用它跳过：没有使用指令语法、没有使用插值语法的节
   1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
   2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
 ```
+![图示1](
+https://github.com/KennyHito/StudyVue/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 
 三、关于销毁Vue实例
 ```
