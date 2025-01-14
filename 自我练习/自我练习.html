@@ -64,7 +64,7 @@
     <br />
     <button @click="onClick(9)">过滤掉数组中小于等于60的数(filter)</button>
     <br />
-    <button @click="onClick()">测试打印</button>
+    <button @click="onClick(10)">测试打印</button>
     <br />
 
   </div>
@@ -109,7 +109,7 @@
               console.log(num, index);
               return num > 60
             });
-          } else {
+          } else if (index === 10) {
             var fruits = ["Banana", "Orange", "Apple", "Mango"];
             console.log(fruits.toString());
 
