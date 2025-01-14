@@ -1,13 +1,13 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
     <title>生命周期函数(钩子)总结</title>
-    <script src="../js/vue.js"></script>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
 
 <body>
@@ -49,6 +49,9 @@
             mounted() {
                 //关键性时刻调用对应的函数 生命周期
                 console.log('mounted');
+
+                // setTimeout：仅执行一次，在指定的延迟时间后执行代码。适用于只需要延迟一次执行的任务。
+                // setInterval：会按照指定的时间间隔重复执行代码，直到调用clearInterval停止。适用于需要周期性执行的任务，比如每秒更新时间、轮询等。
                 this.timer = setInterval(() => {
                     console.log('inter')
                     //剪头函数没有this会从外部作用域寻找 mounted是由vue管理的函数，所以该函数中的this是vm(vue实例对象)
@@ -60,7 +63,11 @@
             beforeDestroy() {
                 console.log('vm要没了')
                 clearInterval(this.timer);
-            }
+            },
+
+            destroyed() {
+                console.log('vm真的没了')
+            },
         });
 
     </script>
