@@ -1,63 +1,57 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>非单文件组件的基本使用</title>
-    <script src="../js/vue.js"></script>
+    <meta charset="UTF-8" />
+    <title>非单文件组件----基本使用</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
 
 <body>
     <!--
-			Vue中使用组件的三大步骤：
-					一、定义组件(创建组件)
-					二、注册组件
-					三、使用组件(写组件标签)
+    Vue中使用组件的三大步骤：
+        一、定义组件(创建组件)
+            一、如何定义一个组件？
+                使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别；
+				    区别如下：
+                    1.el不要写，为什么？ ——— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。
+                    2.data必须写成函数，为什么？ ———— 避免组件被复用时，数据存在引用关系。
+                备注：使用template可以配置组件结构。
+        二、注册组件
+            二、如何注册组件？
+                1.局部注册：靠new Vue的时候传入components选项
+                2.全局注册：靠Vue.component('组件名',组件)
+        三、使用组件(写组件标签)
+            三、编写组件标签：<school></school>
+    -->
 
-			一、如何定义一个组件？
-						使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别；
-						区别如下：
-								1.el不要写，为什么？ ——— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。
-								2.data必须写成函数，为什么？ ———— 避免组件被复用时，数据存在引用关系。
-						备注：使用template可以配置组件结构。
-
-			二、如何注册组件？
-							1.局部注册：靠new Vue的时候传入components选项
-							2.全局注册：靠Vue.component('组件名',组件)
-
-			三、编写组件标签：
-							<school></school>
--->
     <div id="root">
-        <h1>
-            {{ msg }}
-        </h1>
-        <hello></hello>
-        <!--使用组件-->
+        <h1>{{ msg }}</h1>
+        <!-- 第三步：编写组件标签 -->
         <school></school>
         <hr />
         <student></student>
         <hr />
+        <hello></hello>
     </div>
+
     <div id="root2">
         <h2>root2容器</h2>
         <hello></hello>
     </div>
+
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
 
-        //全部注册
+        // 想用组件的三个步骤
+        // 1.创建组件
+        // 2.注册组件
+        // 3.使用组件
 
-        /**
-         * 想用组件的三个步骤
-         * 1.创建组件
-         * 2.注册组件
-         * 3.使用组件
-         */
-        //创建school组件
+        //第一步:创建school组件
         const school = Vue.extend({
             template: `
               <div>
@@ -66,7 +60,7 @@
               <button @click="showName">点我提示学校名</button>
               </div>
             `,
-            //组件定义不要写el配置项，因为最终所有的组件都要被vm所管理，由vm决定服务于哪个容器
+            //el: "#root", //组件定义不要写el配置项，因为最终所有的组件都要被vm所管理，由vm决定服务于哪个容器
             //这里data必须写成函数形式 避免多次使用组件导致共用data对象导致一个问题
             data() {
                 //注意这里不要写箭头函数
@@ -81,7 +75,8 @@
                 }
             }
         })
-        //创建school组件
+
+        //第一步:创建school组件
         const student = Vue.extend({
             template: `
             <div>
@@ -97,7 +92,7 @@
             }
         });
 
-
+        //创建hello组件
         const hello = Vue.extend({
             template: `
           <div>
@@ -106,27 +101,28 @@
         `,
             data() {
                 return {
-                    name: 'panyue'
+                    name: '北京'
                 }
             }
         });
 
-        //hello组件
-        Vue.component('hello', hello); //全局注册hello 就代表所有的vm都可以用hello组件了
+        // 第二步:第二种方法,全局注册hello 就代表所有的vm都可以用hello组件了
+        // Vue.component('hello', hello); 
 
         // 创建vm
         new Vue({
             el: "#root",
-            //配置组件(局部注册)
             data: {
-                msg: 'hello world'
+                msg: '您好世界!'
             },
+            //第二步:第一种方法,注册组件(局部注册)
             components: {
                 school,
                 student
             },
         })
 
+        // 创建另一个vm
         new Vue({
             el: '#root2',
         });

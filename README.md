@@ -444,3 +444,24 @@ https://github.com/KennyHito/StudyVue/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E
   2.销毁后自定义事件会失效，但原生DOM事件依然有效。(click之类的原生事件依然会被调用)
   3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
 ```
+
+<h3>十八、非单文件组件</h3>
+
+Vue中使用组件的三大步骤
+```
+一、定义组件(创建组件)
+    1、如何定义一个组件？
+      使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options几乎一样，但也有点区别；
+      区别如下：
+      a.el不要写，为什么？ ——— 最终所有的组件都要经过一个vm的管理，由vm中的el决定服务哪个容器。
+      b.data必须写成函数，为什么？ ———— 避免组件被复用时，数据存在引用关系。
+    备注：使用template可以配置组件结构。
+
+二、注册组件
+    1、如何注册组件？
+      a.局部注册：靠new Vue的时候传入components选项
+      b.全局注册：靠Vue.component('组件名',组件)
+
+三、使用组件(写组件标签)
+    1、编写组件标签：<school></school>
+```
