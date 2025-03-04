@@ -1,34 +1,32 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
     <title>组件的嵌套</title>
-    <script src="../js/vue.js"></script>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 浏览器书签栏的小图标设置 -->
+    <link rel="icon" href="../img/favicon.ico" />
 </head>
 
 <body>
     <div id="root" :x="x">
-        <!--组件的嵌套-->
-        <!--    <school>-->
-        <!--    </school>-->
-        <!--    <hello></hello>-->
-        <!--    <app></app>-->
+        <!-- 组件的嵌套 -->
+        <!-- <school></school> -->
+        <!-- <hello></hello> -->
+        <!-- <app></app> -->
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
 
         const student = Vue.extend({
             template: `
-           <div>
-              <h2>学生姓名:{{ name }}</h2>
-              <h2>学生年龄:{{ age }}</h2>
-
-           </div>
-        `,
+                <div>
+                    <h2>学生姓名:{{ name }}</h2>
+                    <h2>学生年龄:{{ age }}</h2>
+                </div>
+            `,
             data() {
                 return {
                     name: 'JONE',
@@ -39,28 +37,25 @@
 
         const school = Vue.extend({
             template: `
-          <div>
-             <h1>学校名称:{{ name }}</h1>
-             <h1>学校地址:{{ address }}</h1>
-             <!--子组件注册给哪个父组件，就嵌套在哪个副组件里面--->
-             <student></student>
-          </div>
-        `,
-
+                <div>
+                    <h1>学校名称:{{ name }}</h1>
+                    <h1>学校地址:{{ address }}</h1>
+                    <!--子组件注册给哪个父组件，就嵌套在哪个副组件里面--->
+                    <student></student>
+                </div>
+            `,
             data() {
                 return {
                     name: '武汉科技大学',
                     address: '武汉'
                 }
             },
-
             //组件嵌套
             //这里也是局部注册组件
             components: {
                 student
             }
         });
-
 
         const hello = Vue.extend({
             template: `<h1>{{ msg }}</h1>`,
@@ -71,12 +66,13 @@
             },
         });
 
-
         const app = Vue.extend({
-            template: `<div>
-            <school></school>
-            <hello></hello>
-          </div>`,
+            template: `
+                <div>
+                    <school></school>
+                    <hello></hello>
+                </div>
+            `,
             components: {
                 school,
                 hello
@@ -88,7 +84,7 @@
             el: "#root",
             //注册组件(局部)
             components: {
-                // //schoo组件与hello组件平级
+                // schoo组件与hello组件平级
                 // school,
                 // hello
                 app,
@@ -97,8 +93,6 @@
                 x: 1,
             }
         });
-
-
     </script>
 </body>
 
