@@ -27,13 +27,13 @@
 
         const school = Vue.extend({
             template: `
-          <div>
-             <h1>学校名称:{{ name }}</h1>
-             <h1>学校地址:{{ address }}</h1>
-             <button @click="showname">点我提示学校名</button>
-             <button @click="cx">点我输出x</button>
-          </div>
-        `,
+                <div>
+                    <h1>学校名称:{{ name }}</h1>
+                    <h1>学校地址:{{ address }}</h1>
+                    <button @click="showname">点我提示学校名</button>
+                    <button @click="cx">点我输出x</button>
+                </div>
+            `,
             data() {
                 return {
                     name: '武汉科技大学',  //vuecomponent的实例对象
