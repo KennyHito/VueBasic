@@ -507,4 +507,10 @@ https://github.com/KennyHito/StudyVue/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E
   5.VueComponent的实例对象，以后简称vc（也可称之为：组件实例对象）。
     Vue的实例对象，以后简称vm。 
 ```
+
+五、一个重要的内置关系
+```
+1.一个重要的内置关系：VueComponent.prototype.__proto__ === Vue.prototype
+2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。
+```
 ![图示1](https://github.com/KennyHito/StudyVue/blob/main/18_%E9%9D%9E%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6/Vue%E5%92%8CVueComponent%E4%B9%8B%E9%97%B4%E5%86%85%E7%BD%AE%E5%85%B3%E7%B3%BB%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
