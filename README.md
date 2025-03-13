@@ -282,8 +282,8 @@ v-for指令:
   a.最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。
   b.如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，仅用于渲染列表用于展示，使用index作为key是没有问题的。
 ```
-![图示1](https://github.com/KennyHito/StudyVue/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/index%E4%BD%9C%E4%B8%BAkey%E6%97%B6dom%E9%94%99%E4%B9%B1%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
-![图示2](https://github.com/KennyHito/StudyVue/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/%E6%95%B0%E6%8D%AEid%E4%BD%9C%E4%B8%BAkey%E7%9A%84%E7%9C%9F%E5%AE%9Edom%E6%B8%B2%E6%9F%93%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE.PNG)
+![图示1](https://github.com/KennyHito/VueBasic/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/index%E4%BD%9C%E4%B8%BAkey%E6%97%B6dom%E9%94%99%E4%B9%B1%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
+![图示2](https://github.com/KennyHito/VueBasic/blob/main/12_%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/%E6%95%B0%E6%8D%AEid%E4%BD%9C%E4%B8%BAkey%E7%9A%84%E7%9C%9F%E5%AE%9Edom%E6%B8%B2%E6%9F%93%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE.PNG)
 
 3、如何监测对象中的数据？
 ```
@@ -436,7 +436,7 @@ b.可利用它跳过：没有使用指令语法、没有使用插值语法的节
   2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
 ```
 ![图示1](
-https://github.com/KennyHito/StudyVue/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
+https://github.com/KennyHito/VueBasic/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 
 三、关于销毁Vue实例
 ```
@@ -513,4 +513,4 @@ https://github.com/KennyHito/StudyVue/blob/main/17_%E7%94%9F%E5%91%BD%E5%91%A8%E
 1.一个重要的内置关系：VueComponent.prototype.__proto__ === Vue.prototype
 2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。
 ```
-![图示1](https://github.com/KennyHito/StudyVue/blob/main/18_%E9%9D%9E%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6/Vue%E5%92%8CVueComponent%E4%B9%8B%E9%97%B4%E5%86%85%E7%BD%AE%E5%85%B3%E7%B3%BB%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
+![图示1](https://github.com/KennyHito/VueBasic/blob/main/18_%E9%9D%9E%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6/Vue%E5%92%8CVueComponent%E4%B9%8B%E9%97%B4%E5%86%85%E7%BD%AE%E5%85%B3%E7%B3%BB%E5%88%86%E6%9E%90%E5%9B%BE.PNG)
